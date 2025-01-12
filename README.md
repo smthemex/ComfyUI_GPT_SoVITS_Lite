@@ -20,14 +20,13 @@ pip install -r requirements.txt
 * 2.1 整合包安装requirements.txt的标准流程：1、复制插件的requirements.txt到你的python_embeded文件目录下；2右键桌面空白位置，打开CMD，3，输入以下命令：
   ```
   python -m pip install -r requirements.txt
-  python -m pip install jieba-fast
+  python -m pip install jieba_fast
   # 或者走清华的加速路线
   python -m pip install -r requirements.txt  -i https://pypi.tuna.tsinghua.edu.cn/simple
-  python -m pip install jieba-fast -i https://pypi.tuna.tsinghua.edu.cn/simple
+  python -m pip install jieba_fast -i https://pypi.tuna.tsinghua.edu.cn/simple
   ```
-* 2.2 特别需要做的步骤 [jieba-fast](https://github.com/deepcs233/jieba_fast) windows可能不好安装，如果你安装不上，尤其是整合包，请按照以下方法来安装：
-    直接从 [jieba-fast](https://github.com/deepcs233/jieba_fast)下载库文件的压缩包，解压后，复制jieba目录下的windows/python3文件夹里的2个文件夹（jieba_fast和jieba_fast-0.49.dist-info）将两个文件夹放入python_embeded\Lib\site-packages目录下，然后也复制插件目录下的_jieba_fast_functions_py3.cp311-win_amd64.pyd 文件到python_embeded\Lib\site-packages目录下。
-  这里要注意，jieba官方的是py35的太旧了，我在插件里放的是311的，如果你是python310或者312，可能需要重新编译，编译方法如下：
+* 2.2 特别需要做的步骤 [jieba_fast](https://github.com/deepcs233/jieba_fast) windows可能不好安装，如果你安装不上，尤其是整合包，请按照以下方法来安装：
+    直接从 [jieba_fast](https://github.com/deepcs233/jieba_fast)下载库文件的压缩包，解压后，复制jieba_fast目录下的windows/python3文件夹里的2个文件夹（jieba_fast和jieba_fast-0.49.dist-info）将两个文件夹放入python_embeded\Lib\site-packages目录下，然后也复制插件目录下的_jieba_fast_functions_py3.cp311-win_amd64.pyd 文件到python_embeded\Lib\site-packages目录下。这里要注意，jieba官方的是py35的太旧了，我在插件里放的是311的，如果你是python310或者312，可能需要重新编译，编译方法如下：
   在解压的jieba-fast目录下，注意要有setup.py文件，打开CMD，运行
   ```
   python setup.py build_ext --inplace
