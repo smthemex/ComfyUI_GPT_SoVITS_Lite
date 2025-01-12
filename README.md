@@ -4,7 +4,7 @@
 
 # 注意事项
 * 本插件优先适配了中英文，日文，韩文等并未列入（可去掉requirements.txt里对应注释），如果你嫌安装麻烦,下载麻烦，请下载GPT_SoVITS官方的各种一键整合包。
-* 本插件的测试环境，torch2.51 ，cuda124,python311 comfyUI便携包 / torch2.2.0 cuda121,python311 comfyUI便携包
+* 本插件的测试环境，win11 torch2.51 ，cuda124,python311 comfyUI便携包 / win11 torch2.2.0 cuda121,python311 comfyUI便携包
 
 1.Installation  
 -----
