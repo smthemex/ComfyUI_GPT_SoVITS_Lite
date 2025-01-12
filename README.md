@@ -17,6 +17,12 @@ git clone https://github.com/smthemex/ComfyUI_GPT_SoVITS_Lite.git
 ```
 pip install -r requirements.txt
 ```
+* 整合包安装requirements.txt的标准流程：1、复制插件的requirements.txt到你的python_embeded文件目录下；2右键桌面空白位置，打开CMD，3，输入以下命令：
+```
+python -m pip install -r requirements.txt
+# 或者走清华的加速路线
+python -m pip install -r requirements.txt  -i https://pypi.tuna.tsinghua.edu.cn/simple   
+```
 * 特别需要做的步骤（这个是微调模型时带来的缺陷，在comfyUI目前只能注意操作，当然，安装特定的库似乎也可以，但是带来更多的不兼容，所以用这个办法解决）：
 复制插件目录里的HParams.py文件，到ComfyUI\utils目录下，然后打开‘ComfyUI\utils\__init__.py’ 文件，一般是空的，加入如下两行代码： 
 ```
