@@ -32,7 +32,7 @@ pip install -r requirements.txt
   python setup.py build_ext --inplace
   ```
 * 2.3 特别需要做的步骤（这个是微调模型时带来的缺陷，在comfyUI目前只能按此操作，当然，安装特定的库似乎也可以，但是带来更多的不兼容，所以用这个简单办法解决）：
-复制插件目录里的HParams.py文件，到ComfyUI\utils目录下，然后打开‘ComfyUI\utils\__init__.py’ 文件，一般是空的，加入如下两行代码： 
+复制插件目录里的HParams.py文件，到ComfyUI\utils目录下，然后打开‘ComfyUI/utils/ _init_ .py’ 文件，一般是空的，加入如下两行代码： 
   ```
   from .extra_config import *
   from .HParams import *
