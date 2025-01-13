@@ -1,0 +1,15 @@
+[project]
+name = "comfyui_gpt_sovits_lite"
+description = "GPT_SoVITS infer only for ComfyUI users"
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["numpy", "scipy", "tensorboard", "librosa==0.9.2", "#numba==0.56.4", "pytorch-lightning", "#gradio>=4.0,<=4.24.0", "ffmpeg-python", "onnxruntime; sys_platform == 'darwin'", "onnxruntime-gpu; sys_platform != 'darwin'", "tqdm", "#funasr==1.0.27 #aliyun", "cn2an", "pypinyin", "#pyopenjtalk>=0.3.4 #jp", "g2p_en", "torchaudio", "#modelscope==1.10.0 #aliyun", "sentencepiece", "transformers", "chardet", "PyYAML", "psutil", "#jieba_fast # need install", "jieba", "LangSegment>=0.2.0", "Faster_Whisper", "wordsegment", "rotary_embedding_torch", "pyjyutping", "g2pk2", "#ko_pron #ko", "opencc; sys_platform != 'linux'", "opencc==1.1.1; sys_platform == 'linux'", "python_mecab_ko; sys_platform != 'win32'", "#fastapi<0.112.2 #no need"]
+
+[project.urls]
+Repository = "https://github.com/smthemex/ComfyUI_GPT_SoVITS_Lite"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "smthemex"
+DisplayName = "ComfyUI_GPT_SoVITS_Lite"
+Icon = ""
