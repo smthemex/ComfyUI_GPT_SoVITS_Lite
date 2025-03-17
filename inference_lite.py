@@ -121,7 +121,7 @@ class DictToAttrRecursive(dict):
 
 def change_sovits_weights(sovits_path,version,is_half,dict_language_v1,dict_language_v2,prompt_language=None,text_language=None):
     #global vq_model, hps, version, dict_language
-    dict_s2 = torch.load(sovits_path, map_location="cpu",)
+    dict_s2 = torch.load(sovits_path, map_location="cpu",weights_only=False)
     hps = dict_s2["config"]
     hps = DictToAttrRecursive(hps)
     hps.model.semantic_frame_rate = "25hz"
@@ -171,7 +171,7 @@ def change_sovits_weights(sovits_path,version,is_half,dict_language_v1,dict_lang
 
 def change_gpt_weights(gpt_path,version,is_half):
     hz = 50
-    dict_s1 = torch.load(gpt_path, map_location="cpu")
+    dict_s1 = torch.load(gpt_path, map_location="cpu",weights_only=False)
     config = dict_s1["config"]
     max_sec = config["data"]["max_sec"]
     t2s_model = Text2SemanticLightningModule(config, "****", is_train=False)
