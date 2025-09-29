@@ -19,6 +19,10 @@ from .GPT_SoVITS.text import chinese
 current_u_path = os.path.dirname(os.path.abspath(__file__))
 device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 
+import os.path
+import sys
+sys.path.append(f'{current_u_path}')
+
 current_u_json=os.path.join(current_u_path,"weight.json")
 
 if os.path.exists(current_u_json):
@@ -121,7 +125,20 @@ class DictToAttrRecursive(dict):
 
 def change_sovits_weights(sovits_path,version,is_half,dict_language_v1,dict_language_v2,prompt_language=None,text_language=None):
     #global vq_model, hps, version, dict_language
-    dict_s2 = torch.load(sovits_path, map_location="cpu",weights_only=False)
+
+    import utils
+    from .ulits import HParams
+    original_hparams = getattr(utils, 'HParams', None)
+    utils.HParams = HParams
+    try:
+        dict_s2 = torch.load(sovits_path, map_location="cpu", weights_only=False)
+    finally:
+        if original_hparams is not None:
+            utils.HParams = original_hparams
+        elif hasattr(utils, 'HParams'):
+            delattr(utils, 'HParams')
+
+    #dict_s2 = torch.load(sovits_path, map_location="cpu",weights_only=False)
     hps = dict_s2["config"]
     hps = DictToAttrRecursive(hps)
     hps.model.semantic_frame_rate = "25hz"
@@ -171,7 +188,19 @@ def change_sovits_weights(sovits_path,version,is_half,dict_language_v1,dict_lang
 
 def change_gpt_weights(gpt_path,version,is_half):
     hz = 50
-    dict_s1 = torch.load(gpt_path, map_location="cpu",weights_only=False)
+    import utils
+    from .ulits import HParams
+    original_hparams = getattr(utils, 'HParams', None)
+    utils.HParams = HParams
+    try:
+        dict_s1 = torch.load(gpt_path, map_location="cpu", weights_only=False)
+    finally:
+        # 清理临时添加的 HParams
+        if original_hparams is not None:
+            utils.HParams = original_hparams
+        elif hasattr(utils, 'HParams'):
+            delattr(utils, 'HParams')
+    #dict_s1 = torch.load(gpt_path, map_location="cpu",weights_only=False)
     config = dict_s1["config"]
     max_sec = config["data"]["max_sec"]
     t2s_model = Text2SemanticLightningModule(config, "****", is_train=False)
