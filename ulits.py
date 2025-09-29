@@ -1,7 +1,3 @@
-import os.path
-import sys
-current_path = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(f'{current_path}')
 
 class HParams:
     def __init__(self, **kwargs):
