@@ -36,7 +36,7 @@ pip install -r requirements.txt
 3.checkpoints 
 ----
 * 3.1 从[lj1995/GPT-SoVITS](https://huggingface.co/lj1995/GPT-SoVITS/tree/main) 下载chinese-hubert-base和chinese-roberta-wwm-ext-large2个文件夹的所有文件，放在ComfyUI\models\GPT_SoVITS下
-* 3.2 [这里](https://paddlespeech.bj.bcebos.com/Parakeet/released_models/g2p/G2PWModel_1.1.zip) 下载g2pW的汉字转拼音文件，解压后，放在示例的G2PWModel目录下
+* 3.2 [G2PWModel.zip(HF)](https://huggingface.co/XXXXRT/GPT-SoVITS-Pretrained/resolve/main/G2PWModel.zip)| [G2PWModel.zip(ModelScope)](https://www.modelscope.cn/models/XXXXRT/GPT-SoVITS-Pretrained/resolve/master/G2PWModel.zip),下载g2pW的汉字转拼音文件，解压后，放在示例的G2PWModel目录下 
 * 3.3 [这里](https://www.icloud.com/iclouddrive/079Bx3QbEosu8XIDkjim_ixPw#nltk_data) 下载nltk_data ，解压后，如果是整合包，放在python_embeded目录下，如果是安装包，放在插件所在盘的位置，比如在D盘就放D盘下，当然，放python目录也可以。
  ```
 ├── ComfyUI/models/GPT_SoVITS/
